@@ -3,7 +3,7 @@ info:
   version: "0.0.1"
   title: Tegan Straley Web API assignment 2
 # during dev, should point to your local machine
-host: localhost:10010
+host: localhost:8080
 # basePath prefixes all resource paths 
 basePath: /
 # 
@@ -29,6 +29,11 @@ paths:
           description: Key/value pairs
           required: false
           type: string
+        - name: Body
+          in: query
+          description: Key/value pairs
+          required: false
+          type: string
       responses:
         "200":
           description: Success
@@ -46,9 +51,14 @@ paths:
       # used as the method name of the controller
       operationId: put
       parameters:
-        - name: id
+        - name: Headers
           in: query
-          description: ID of item for future use
+          description: Key/value pairs
+          required: false
+          type: string
+        - name: Body
+          in: query
+          description: Key/value pairs
           required: false
           type: string
       responses:
@@ -68,9 +78,14 @@ paths:
       # used as the method name of the controller
       operationId: delete
       parameters:
-        - name: id
+        - name: Headers
           in: query
-          description: ID of item for future use
+          description: Key/value pairs
+          required: false
+          type: string
+        - name: Body
+          in: query
+          description: Key/value pairs
           required: false
           type: string
       responses:
@@ -92,9 +107,14 @@ paths:
       # used as the method name of the controller
       operationId: get
       parameters:
-        - name: id
+        - name: Headers
           in: query
-          description: ID of item for future use
+          description: Key/value pairs
+          required: false
+          type: string
+        - name: Body
+          in: query
+          description: Key/value pairs
           required: false
           type: string
       responses:
