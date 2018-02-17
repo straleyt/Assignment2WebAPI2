@@ -31,7 +31,7 @@ var util = require('util');
 //     posts: posts
 // };
 
-function put(req,res){
+function puts(req,res){
   //If no headers or body say so
   if(req.headers.empty){
       res.send("No headers sent");
@@ -48,56 +48,37 @@ function put(req,res){
        res.send("No body sent");
   } else{
       var myBody = req.body;
-      Object.keys(myBody).forEach(function(key){
-          console.log("Body Key: " + key + "    Value: " + myBody[key]);
-          res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-      });       
+      res.json({ keys: values, body: req.body})
+    //   Object.keys(myBody).forEach(function(key){
+    //       console.log("Body Key: " + key + "    Value: " + myBody[key]);
+    //       res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
+    //   });       
   }
 };
 
 
-function post(req,res){
+function posts(req,res){
     //If no headers or body say so
     if(req.headers.empty){
         res.send("No headers sent");
     } else{
         var myHeaders = req.headers;
-        Object.keys(myHeaders).forEach(function(key){
-            console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-            res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-        });
+        res.json({ keys: values, header: req.headers})
+      //   Object.keys(myHeaders).forEach(function(key){
+      //       console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
+      //       res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
+  
+      //   });
     }
     if(req.body.empty){
          res.send("No body sent");
     } else{
         var myBody = req.body;
-        Object.keys(myBody).forEach(function(key){
-            console.log("Body Key: " + key + "    Value: " + myBody[key]);
-            res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-        });       
-    }
-  };
-
-
-  function deleteNode(req,res){
-    //If no headers or body say so
-    if(req.headers.empty){
-        res.send("No headers sent");
-    } else{
-        var myHeaders = req.headers;
-        Object.keys(myHeaders).forEach(function(key){
-            console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-            res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-        });
-    }
-    if(req.body.empty){
-         res.send("No body sent");
-    } else{
-        var myBody = req.body;
-        Object.keys(myBody).forEach(function(key){
-            console.log("Body Key: " + key + "    Value: " + myBody[key]);
-            res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-        });       
+        res.json({ keys: values, body: req.body})
+      //   Object.keys(myBody).forEach(function(key){
+      //       console.log("Body Key: " + key + "    Value: " + myBody[key]);
+      //       res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
+      //   });       
     }
   };
 
@@ -109,27 +90,57 @@ function post(req,res){
         res.send("No headers sent");
     } else{
         var myHeaders = req.headers;
-        Object.keys(myHeaders).forEach(function(key){
-            console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-            res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-        });
+        res.json({ keys: values, header: req.headers})
+      //   Object.keys(myHeaders).forEach(function(key){
+      //       console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
+      //       res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
+  
+      //   });
     }
     if(req.body.empty){
          res.send("No body sent");
     } else{
         var myBody = req.body;
-        Object.keys(myBody).forEach(function(key){
-            console.log("Body Key: " + key + "    Value: " + myBody[key]);
-            res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-        });       
+        res.json({ keys: values, body: req.body})
+      //   Object.keys(myBody).forEach(function(key){
+      //       console.log("Body Key: " + key + "    Value: " + myBody[key]);
+      //       res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
+      //   });       
     }
   };
 
 
 
-// app.use('*', function(req, res, next) {
-//   res.statusCode = 405;
-//   //Code to send back response for invalid verb
-//   console.log("Not a valid route");
+  function deleteFunction(req,res){
+    //If no headers or body say so
+    if(req.headers.empty){
+        res.send("No headers sent");
+    } else{
+        var myHeaders = req.headers;
+        res.json({ keys: values, header: req.headers})
+      //   Object.keys(myHeaders).forEach(function(key){
+      //       console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
+      //       res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
+  
+      //   });
+    }
+    if(req.body.empty){
+         res.send("No body sent");
+    } else{
+        var myBody = req.body;
+        res.json({ keys: values, body: req.body})
+      //   Object.keys(myBody).forEach(function(key){
+      //       console.log("Body Key: " + key + "    Value: " + myBody[key]);
+      //       res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
+      //   });       
+    }
+  };
 
-// });
+
+
+ function stars(req, res, next) {
+  res.statusCode = 405;
+  //Code to send back response for invalid verb
+  console.log("Not a valid route");
+
+};

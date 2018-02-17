@@ -24,7 +24,7 @@ paths:
     post:
       description: posts for post
       # used as the method name of the controller
-      operationId: post
+      operationId: posts
       responses:
         "200":
           description: Success
@@ -33,6 +33,9 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+            
+            
+            
   /puts:
     # binds swagger app logic to a route
     x-swagger-router-controller: Node
@@ -40,17 +43,6 @@ paths:
       description: puts for put
       # used as the method name of the controller
       operationId: put
-      parameters:
-        - name: Headers
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
-        - name: Body
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
       responses:
         "200":
           description: Success
@@ -65,13 +57,7 @@ paths:
     delete:
       description: deletes for delete
       # used as the method name of the controller
-      operationId: deleteNode
-      parameters:
-        - name: Body
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
+      operationId: deleteFunction
       responses:
         "200":
           description: Success
@@ -87,17 +73,6 @@ paths:
       description: gets for get
       # used as the method name of the controller
       operationId: get
-      parameters:
-        - name: Headers
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
-        - name: Body
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
       responses:
         "200":
           description: Success

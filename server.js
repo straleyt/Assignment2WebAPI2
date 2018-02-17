@@ -29,8 +29,6 @@ app.use(passport.initialize());
 // console.log("Server listening on port " + port);
 
 
-
-
 'use strict';
 
 var SwaggerExpress = require('swagger-express-mw');
