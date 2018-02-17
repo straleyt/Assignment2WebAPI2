@@ -25,17 +25,6 @@ paths:
       description: posts for post
       # used as the method name of the controller
       operationId: post
-      parameters:
-        - name: Headers
-          in: header
-          description: Key/value pairs
-          required: false
-          type: string
-        - name: Body
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
       responses:
         "200":
           description: Success

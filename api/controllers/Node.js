@@ -24,12 +24,12 @@ var util = require('util');
   In the starter/skeleton project the 'get' operation on the '/hello' path has an operationId named 'hello'.  Here,
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
-module.exports = {
-    gets: gets,
-    puts: puts,
-    deletes: deletes,
-    posts: posts
-};
+// module.exports = {
+//     gets: gets,
+//     puts: puts,
+//     deletes: deletes,
+//     posts: posts
+// };
 
 function put(req,res){
   //If no headers or body say so
@@ -37,10 +37,12 @@ function put(req,res){
       res.send("No headers sent");
   } else{
       var myHeaders = req.headers;
-      Object.keys(myHeaders).forEach(function(key){
-          console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-          res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-      });
+      res.json({ keys: values, header: req.headers})
+    //   Object.keys(myHeaders).forEach(function(key){
+    //       console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
+    //       res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
+
+    //   });
   }
   if(req.body.empty){
        res.send("No body sent");
@@ -125,9 +127,9 @@ function post(req,res){
 
 
 
-app.use('*', function(req, res, next) {
-  res.statusCode = 405;
-  //Code to send back response for invalid verb
-  console.log("Not a valid route");
+// app.use('*', function(req, res, next) {
+//   res.statusCode = 405;
+//   //Code to send back response for invalid verb
+//   console.log("Not a valid route");
 
-});
+// });
