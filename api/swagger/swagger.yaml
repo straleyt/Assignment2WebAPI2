@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
+  version: "0.0.2"
   title: Tegan Straley Web API assignment 2
 # during dev, should point to your local machine
 host: localhost:8080
@@ -19,13 +19,15 @@ produces:
   - application/json
 paths:
   /posts:
+    # binds swagger app logic to a route
+    x-swagger-router-controller: Node
     post:
       description: posts for post
       # used as the method name of the controller
       operationId: post
       parameters:
         - name: Headers
-          in: query
+          in: header
           description: Key/value pairs
           required: false
           type: string
@@ -37,15 +39,14 @@ paths:
       responses:
         "200":
           description: Success
-          schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HeaderBodyResponse"
         # responses may fall through to errors
         default:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
   /puts:
+    # binds swagger app logic to a route
+    x-swagger-router-controller: Node
     put:
       description: puts for put
       # used as the method name of the controller
@@ -64,25 +65,19 @@ paths:
       responses:
         "200":
           description: Success
-          schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HeaderBodyResponse"
         # responses may fall through to errors
         default:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
   /deletes:
+    # binds swagger app logic to a route
+    x-swagger-router-controller: Node
     delete:
       description: deletes for delete
       # used as the method name of the controller
-      operationId: delete
+      operationId: deleteNode
       parameters:
-        - name: Headers
-          in: query
-          description: Key/value pairs
-          required: false
-          type: string
         - name: Body
           in: query
           description: Key/value pairs
@@ -91,17 +86,14 @@ paths:
       responses:
         "200":
           description: Success
-          schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HeaderBodyResponse"
         # responses may fall through to errors
         default:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
   /gets:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
+    # binds swagger app logic to a route
+    x-swagger-router-controller: Node
     get:
       description: gets for get
       # used as the method name of the controller
@@ -120,9 +112,6 @@ paths:
       responses:
         "200":
           description: Success
-          schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HeaderBodyResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -135,12 +124,6 @@ paths:
     
 # complex objects have schema definitions
 definitions:
-  HeaderBodyResponse:
-    required:
-      - message
-    properties:
-      message:
-        type: string
   ErrorResponse:
     required:
       - message

@@ -21,58 +21,7 @@ app.use(passport.initialize());
 
 var router = express.Router();
 
-// app.post('/posts', function(req,res){
-//     //If no headers or body say so
-//     if(req.headers.empty){
-//         res.send("No headers sent");
-//     } else{
-//         var myHeaders = req.headers;
-//         Object.keys(myHeaders).forEach(function(key){
-//             console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-//             res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-//         });
-//     }
-//     if(req.body.empty){
-//          res.send("No body sent");
-//     } else{
-//         var myBody = req.body;
-//         Object.keys(myBody).forEach(function(key){
-//             console.log("Body Key: " + key + "    Value: " + myBody[key]);
-//             res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-//         });       
-//     }
-// });
 
-
-// app.get('/gets', function(req,res){
-//     //If no headers or body say so
-//     if(req.headers.empty){
-//         res.send("No headers sent");
-//     } else{
-//         var myHeaders = req.headers;
-//         Object.keys(myHeaders).forEach(function(key){
-//             console.log("Header Key: " + key + "    Value: " + myHeaders[key]);
-//             res.write("Header Key: " + key + "    Value: " + myHeaders[key] + '</br>');
-//         });
-//     }
-//     if(req.body.empty){
-//          res.send("No body sent");
-//     } else{
-//         var myBody = req.body;
-//         Object.keys(myBody).forEach(function(key){
-//             console.log("Body Key: " + key + "    Value: " + myBody[key]);
-//             res.write("Body Key: " + key + "    Value: " + myBody[key] + '</br>');
-//         });       
-//     }
-// });
-
-
-// app.use('*', function(req, res, next) {
-//     res.statusCode = 405;
-//     //Code to send back response for invalid verb
-//     console.log("Not a valid route");
-
-// });
 
 //Important. On port 8080
 app.use('/', router);
