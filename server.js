@@ -1,4 +1,4 @@
-// //file: server.js
+//file: server.js
 
 //node_modules required.
 //Packages should be a dependency in the package.json 
@@ -12,22 +12,11 @@ var passport = require('passport');
 var jwt = require('jsonwebtoken');
 var port = 8080;
 
-
-// //Creating the node.js server
+//Creating the server
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
-
-// var router = express.Router();
-
-
-
-// //Important. On port 8080
-// app.use('/', router);
-// app.listen(process.env.PORT || port);
-// console.log("Server listening on port " + port);
-
 
 'use strict';
 
@@ -49,7 +38,4 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   app.listen(port);
   console.log("Server listening on port " + port);
 
-  if (swaggerExpress.runner.swagger.paths['/hello']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
-  }
 });

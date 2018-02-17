@@ -2,29 +2,22 @@ swagger: "2.0"
 info:
   version: "0.0.2"
   title: Tegan Straley Web API assignment 2
-# during dev, should point to your local machine
-host: localhost:8080
-# basePath prefixes all resource paths 
-basePath: /
+
 # 
 schemes:
   # tip: remove http to make production-grade
   - http
   - https
 # format of bodies a client can send (Content-Type)
-consumes:
-  - application/json
-# format of the responses to the client (Accepts)
-produces:
-  - application/json
+
 paths:
   /posts:
     # binds swagger app logic to a route
-    x-swagger-router-controller: Node
+    x-swagger-router-controller: node
     post:
       description: posts for post
       # used as the method name of the controller
-      operationId: posts
+      operationId: post
       responses:
         "200":
           description: Success
@@ -38,7 +31,7 @@ paths:
             
   /puts:
     # binds swagger app logic to a route
-    x-swagger-router-controller: Node
+    x-swagger-router-controller: node
     put:
       description: puts for put
       # used as the method name of the controller
@@ -53,7 +46,7 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /deletes:
     # binds swagger app logic to a route
-    x-swagger-router-controller: Node
+    x-swagger-router-controller: node
     delete:
       description: deletes for delete
       # used as the method name of the controller
@@ -68,7 +61,7 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /gets:
     # binds swagger app logic to a route
-    x-swagger-router-controller: Node
+    x-swagger-router-controller: node
     get:
       description: gets for get
       # used as the method name of the controller
